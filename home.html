@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type = "text/jscript" src="papaparse.min.js"></script>
+    <meta charset = "utf-8">
+    <meta name = "viewport"
+    content = "width = device-width, initial-scale = 1.0">
+    <title>Welcome</title>
+    <link rel = "stylesheet" href="home.css">
+  </head>
+
+
+
+  <body>
+
+    <div id = "background-scroll">
+
+      <h1 id = "Scroll-Text">Scroll Down for Predicted NBA Stats</h1>
+
+    </div>
+    <div id = "main-page">
+
+      <h1 id = "main-header">Enter a Player Below</h1>
+
+      <form class = "form-inline">
+        <input type="text" placeholder="Search..." name="search" id = "stats-select">
+        <button type="button" id = 'submit-button'>Submit</button>
+      </form>
+
+      <table id = "table-locator">
+        <tr>
+          <th>Name</th>
+          <th>PPG</th>
+          <th>APG</th>
+          <th>RBG</th>
+          <th>FG%</th>
+          <th>3PT%</th>
+          <th>FT%</th>
+        </tr>
+      </table>
+
+      <h2 id = "email"> A Brett Kessler production, email <a id = "link" href = "mailto: bekessler2@wisc.edu">here</a> </h2>
+
+    </div>
+
+
+  <script type = "text/javascript">
+
+  console.log("hello");
+
+    let submit_button = document.getElementById('submit-button').addEventListener('click', () => {
+      console.log("yessir");
+      // console.log(document.getElementById('stats-select').value);
+
+      Papa.parse("https://raw.githubusercontent.com/brettk10/NBA-Predicted-Stats-2021/main/predictedStats.csv", {
+        download: true,
+        header: true,
+        complete: function(results) {
+
+          // console.log(results);
+          // console.log(results.data[0]['Name']);
+          let name = document.getElementById('stats-select').value;
+          let table = document.getElementById('table-locator');
+          for(var i = 0; i < results.data.length; i++) {
+            if(results.data[i]['Name'] === name) {
+              let row = table.insertRow(1);
+              let cellName = row.insertCell(0);
+              let cellPPG = row.insertCell(1);
+              let cellAPG = row.insertCell(2);
+              let cellRBG = row.insertCell(3);
+              let cellFG = row.insertCell(4);
+              let cell3P = row.insertCell(5);
+              let cellFT = row.insertCell(6);
+              cellName.innerHTML = name;
+              cellPPG.innerHTML = results.data[i]['PPG'];
+              cellAPG.innerHTML = results.data[i]['APG'];
+              cellRBG.innerHTML = results.data[i]['RBG'];
+              cellFG.innerHTML = results.data[i]['FG%'];
+              cell3P.innerHTML = results.data[i]['3PT%'];
+              cellFT.innerHTML = results.data[i]['FT%'];
+            }
+          }
+          // for(var i = 0; i < results.data.length)
+          /*
+          results.data.map((data, index) => {
+            let name = document.getElementById('stats-select.value');
+            let table = document.getElementById('table-locator');
+            data.map((row, index) => {
+              if (row[0] === name) {
+                let newRow = table.insertRow(-1);
+                let newCell = newRow.insertCell();
+                let newText = document.createTextNode(row);
+                newCell.appendChild(newText);
+              }
+            });
+          });
+          */
+        }
+
+      });
+
+    });
+    /*
+    function findAndReturnPlayer(data) {
+
+      let name = document.getElementById('stats-select.value');
+      let table = document.getElementById('table-locator');
+			data.map((row, index) => {
+        if (row[0] === name) {
+          let newRow = table.insertRow(-1);
+  				let newCell = newRow.insertCell();
+  				let newText = document.createTextNode(row);
+  				newCell.appendChild(newText);
+        }
+			});
+    }
+    */
+
+    console.log("Stephen Curry");
+  </script>
+
+</body>
+
+</html>

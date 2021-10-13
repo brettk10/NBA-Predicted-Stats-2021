@@ -1,0 +1,76 @@
+html {
+  height: 100%;
+}
+
+#background-scroll {
+  background-image: url("Steph.PNG");
+  min-height: 800px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#Scroll-Text {
+  position: absolute;
+  font-size: 55px;
+  color: white;
+  right: 100px;
+  bottom: 200px;
+  width: 500px;
+  weight: 200px;
+  border: 5px solid white;
+}
+
+#main-page {
+  height:1200px;
+  background-color:lightgrey;
+}
+
+#main-header {
+  color: white;
+  position: absolute;
+  font-size: 55px;
+  top: 125%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 5px solid white;
+}
+
+#stats-select {
+  position: absolute;
+  font-size: 35px;
+  top: 145%;
+  left: 37%;
+}
+
+#submit-button {
+  position: absolute;
+  font-size: 35px;
+  top: 165%;
+  left: 44%;
+}
+
+table, th, td {
+  border: 5px solid white;
+}
+
+
+#table-locator {
+  color: white;
+  position: absolute;
+  font-size: 45px;
+  top:185%;
+  left: 15%;
+}
+
+#email {
+  color: white;
+  position: absolute;
+  top: 265%;
+  left: 35%;
+}
+
+#link {
+  color: white;
+}
