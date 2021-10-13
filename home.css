@@ -5,6 +5,7 @@ html {
 #background-scroll {
   background-image: url("Steph.PNG");
   min-height: 800px;
+  width: 100%;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
