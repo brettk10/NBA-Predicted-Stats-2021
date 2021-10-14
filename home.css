@@ -75,3 +75,9 @@ table, th, td {
 #link {
   color: white;
 }
+#disclaimer{
+  color: white;
+  position: absolute;
+  top: 155%;
+  left: 30%;
+}
